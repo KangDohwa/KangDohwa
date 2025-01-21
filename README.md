@@ -23,9 +23,9 @@
   <br/>
   <br/>
   
-  [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=KangDohwa&layout=compact&exclude_repo=DalamudAssetsKR,DalamudResource,Dalamud.UpdaterKR,Dalamud-7.3.5.0,DalamudPluginsD17KR,remote-party-finder)](https://github.com/anuraghazra/github-readme-stats)
+  [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=KangDohwa&layout=compact&exclude_repo=DalamudAssetsKR)](github-readme-stats-sepia-beta-99.vercel.app)
   
-  [![Dohwa's GitHub stats](https://github-readme-stats.vercel.app/api?username=KangDohwa&show_icons=true&theme=radical)](https://github.com/anuraghazra/github-readme-stats)
+  [![Dohwa's GitHub stats](https://github-readme-stats.vercel.app/api?username=KangDohwa&show_icons=true&theme=radical)](github-readme-stats-sepia-beta-99.vercel.app)
   
 </div>
 <!---
