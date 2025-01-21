@@ -23,9 +23,9 @@
   <br/>
   <br/>
   
-  [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=KangDohwa&layout=compact&exclude_repo=DalamudAssetsKR)](github-readme-stats-sepia-beta-99.vercel.app)
+  [![Top Langs](https://github-readme-stats-sepia-beta-99.vercel.app/api/top-langs/?username=KangDohwa&layout=compact&exclude_repo=DalamudAssetsKR)](https://github.com/anuraghazra/github-readme-stats)
   
-  [![Dohwa's GitHub stats](https://github-readme-stats.vercel.app/api?username=KangDohwa&show_icons=true&theme=radical)](github-readme-stats-sepia-beta-99.vercel.app)
+  [![Dohwa's GitHub stats](https://github-readme-stats-sepia-beta-99.vercel.app/api?username=KangDohwa&show_icons=true&theme=radical)](https://github.com/anuraghazra/github-readme-stats)
   
 </div>
 <!---
