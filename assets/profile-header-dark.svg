@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-labelledby="title desc">
+  <title id="title">KangDohwa GitHub profile</title>
+  <desc id="desc">A dark modern header featuring the name KangDohwa and the main technologies Python and C Sharp.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d1117"/>
+      <stop offset="1" stop-color="#161b22"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3776ab"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#30363d" stroke-width="1" opacity="0.38"/>
+    </pattern>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="280" rx="24" fill="url(#bg)"/>
+  <rect width="1200" height="280" rx="24" fill="url(#grid)"/>
+  <circle cx="1080" cy="40" r="150" fill="#3776ab" opacity="0.16" filter="url(#glow)"/>
+  <circle cx="990" cy="255" r="120" fill="#8b5cf6" opacity="0.14" filter="url(#glow)"/>
+  <rect x="72" y="64" width="68" height="6" rx="3" fill="url(#accent)"/>
+  <text x="72" y="145" fill="#f0f6fc" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="-1">KangDohwa</text>
+  <text x="75" y="194" fill="#8b949e" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="600" letter-spacing="4">PYTHON  ·  C#</text>
+  <g transform="translate(1012 104)" fill="none" stroke="url(#accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M35 0 0 36l35 36"/>
+    <path d="m93 0 35 36-35 36"/>
+    <path d="m75 -10-28 92" opacity="0.72"/>
+  </g>
+</svg>
