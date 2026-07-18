@@ -19,5 +19,5 @@
   <rect class="card" x="0.5" y="0.5" width="479" height="189" rx="12"/>
   <text class="title" x="28" y="36" font-size="20">GitHub Stats</text>
   <text class="subtitle" x="28" y="59" font-size="12">Last 30 days · Personal + 5 owner organizations</text>
-  <text class="label" x="32" y="92" font-size="13">Repositories</text><text class="value" x="32" y="116" font-size="22">3</text><text class="label" x="250" y="92" font-size="13">PRs opened</text><text class="value" x="250" y="116" font-size="22">27</text><text class="label" x="32" y="151" font-size="13">Commits</text><text class="value" x="32" y="175" font-size="22">0</text><text class="label" x="250" y="151" font-size="13">PRs merged</text><text class="value" x="250" y="175" font-size="22">26</text>
+  <text class="label" x="32" y="92" font-size="13">Repositories</text><text class="value" x="32" y="116" font-size="22">13</text><text class="label" x="250" y="92" font-size="13">PRs opened</text><text class="value" x="250" y="116" font-size="22">28</text><text class="label" x="32" y="151" font-size="13">Commits</text><text class="value" x="32" y="175" font-size="22">191</text><text class="label" x="250" y="151" font-size="13">PRs merged</text><text class="value" x="250" y="175" font-size="22">27</text>
 </svg>
