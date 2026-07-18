@@ -62,7 +62,7 @@ Git Config   6 mins             ░░░░░░░░░░░░░░░░
 
 <div align="center">
 
-<img height="165" src="./assets/top-langs.svg" alt="KangDohwa's most used languages" />
-<img height="165" src="./assets/github-stats.svg" alt="KangDohwa's GitHub stats" />
+<img height="190" src="./assets/top-langs.svg" alt="KangDohwa's most used languages" />
+<img height="190" src="./assets/github-stats.svg" alt="KangDohwa's GitHub stats" />
 
 </div>
