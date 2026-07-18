@@ -21,9 +21,10 @@ jobs:
       - name: Check out profile repository
         uses: actions/checkout@v6
 
-      - name: Update recent public activity
+      - name: Update profile data
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           PROFILE_USERNAME: KangDohwa
           PROFILE_REPOSITORY_OWNER: KangDohwa
         run: python3 scripts/update_readme.py
@@ -38,5 +39,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "chore: update profile activity"
+          git commit -m "chore: update profile data"
           git push

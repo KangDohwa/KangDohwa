@@ -44,6 +44,12 @@ Python과 C#을 중심으로 만들고 배우고 있습니다.
 _표시할 최근 공개 활동이 없습니다._
 <!--END_SECTION:activity-->
 
+## This Week I Spent My Time On
+
+<!--START_SECTION:wakatime-->
+_WakaTime API key를 등록하면 최근 7일 통계가 표시됩니다._
+<!--END_SECTION:wakatime-->
+
 ## GitHub Stats
 
 <div align="center">
