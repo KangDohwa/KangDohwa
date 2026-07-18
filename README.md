@@ -54,11 +54,7 @@ _WakaTime API key를 등록하면 최근 7일 통계가 표시됩니다._
 
 <div align="center">
 
-<a href="https://github.com/anuraghazra/github-readme-stats">
-  <img height="165" src="https://github-readme-stats-sepia-beta-99.vercel.app/api/top-langs/?username=KangDohwa&layout=compact&theme=transparent&hide_border=true" alt="KangDohwa's most used languages" />
-</a>
-<a href="https://github.com/anuraghazra/github-readme-stats">
-  <img height="165" src="https://github-readme-stats-sepia-beta-99.vercel.app/api?username=KangDohwa&show_icons=true&theme=transparent&hide_border=true" alt="KangDohwa's GitHub stats" />
-</a>
+<img height="165" src="./assets/top-langs.svg" alt="KangDohwa's most used languages" />
+<img height="165" src="./assets/github-stats.svg" alt="KangDohwa's GitHub stats" />
 
 </div>
