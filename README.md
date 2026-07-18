@@ -47,7 +47,15 @@ _표시할 최근 공개 활동이 없습니다._
 ## This Week I Spent My Time On
 
 <!--START_SECTION:wakatime-->
-_WakaTime API key를 등록하면 최근 7일 통계가 표시됩니다._
+```text
+Total: 3 hrs 46 mins
+
+Other        3 hrs 20 mins      █████████░░░░░░░░░░░   46.97 %
+Markdown     2 hrs 31 mins      ███████░░░░░░░░░░░░░   35.56 %
+C#           32 mins            ██░░░░░░░░░░░░░░░░░░   07.58 %
+Python       30 mins            █░░░░░░░░░░░░░░░░░░░   07.21 %
+Git Config   6 mins             ░░░░░░░░░░░░░░░░░░░░   01.60 %
+```
 <!--END_SECTION:wakatime-->
 
 ## GitHub Stats
