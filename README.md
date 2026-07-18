@@ -54,7 +54,7 @@ _WakaTime API key를 등록하면 최근 7일 통계가 표시됩니다._
 
 <div align="center">
 
-<img height="165" src="./assets/top-langs.svg" alt="KangDohwa's most used languages" />
-<img height="165" src="./assets/github-stats.svg" alt="KangDohwa's GitHub stats" />
+<img height="190" src="./assets/top-langs.svg" alt="KangDohwa's most used languages" />
+<img height="190" src="./assets/github-stats.svg" alt="KangDohwa's GitHub stats" />
 
 </div>
