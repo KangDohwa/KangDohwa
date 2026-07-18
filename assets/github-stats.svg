@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="480" height="190" viewBox="0 0 480 190" role="img" aria-labelledby="stats-title stats-desc">
   <title id="stats-title">KangDohwa GitHub statistics</title>
-  <desc id="stats-desc">Aggregate repository statistics from personal repositories and organizations owned by KangDohwa.</desc>
+  <desc id="stats-desc">Rolling 30-day contribution statistics from personal repositories and organizations owned by KangDohwa.</desc>
   <defs><style>
       text { font-family: Inter, "Segoe UI", Arial, sans-serif; }
       .card { fill: #ffffff; stroke: #e2e8f0; }
@@ -18,6 +18,6 @@
     </style></defs>
   <rect class="card" x="0.5" y="0.5" width="479" height="189" rx="12"/>
   <text class="title" x="28" y="36" font-size="20">GitHub Stats</text>
-  <text class="subtitle" x="28" y="59" font-size="12">Personal repositories + 5 owner organizations</text>
-  <text class="label" x="32" y="92" font-size="13">Repositories</text><text class="value" x="32" y="116" font-size="22">284</text><text class="label" x="250" y="92" font-size="13">Owner organizations</text><text class="value" x="250" y="116" font-size="22">5</text><text class="label" x="32" y="151" font-size="13">Stars</text><text class="value" x="32" y="175" font-size="22">0</text><text class="label" x="250" y="151" font-size="13">Forks</text><text class="value" x="250" y="175" font-size="22">0</text>
+  <text class="subtitle" x="28" y="59" font-size="12">Last 30 days · Personal + 5 owner organizations</text>
+  <text class="label" x="32" y="92" font-size="13">Repositories</text><text class="value" x="32" y="116" font-size="22">3</text><text class="label" x="250" y="92" font-size="13">PRs opened</text><text class="value" x="250" y="116" font-size="22">27</text><text class="label" x="32" y="151" font-size="13">Commits</text><text class="value" x="32" y="175" font-size="22">0</text><text class="label" x="250" y="151" font-size="13">PRs merged</text><text class="value" x="250" y="175" font-size="22">26</text>
 </svg>
