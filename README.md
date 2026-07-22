@@ -48,13 +48,13 @@ _표시할 최근 공개 활동이 없습니다._
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 13 hrs 54 mins
+Total: 21 hrs 11 mins
 
-Other        16 hrs 14 mins     ███████████░░░░░░░░░   53.87 %
-Markdown     3 hrs 59 mins      ███░░░░░░░░░░░░░░░░░   13.26 %
-JavaScript   2 hrs 28 mins      ██░░░░░░░░░░░░░░░░░░   08.20 %
-Python       2 hrs 9 mins       █░░░░░░░░░░░░░░░░░░░   07.18 %
-Git Config   2 hrs 2 mins       █░░░░░░░░░░░░░░░░░░░   06.78 %
+Other        17 hrs 39 mins     █████████░░░░░░░░░░░   45.45 %
+Markdown     8 hrs 22 mins      ████░░░░░░░░░░░░░░░░   21.58 %
+Groff        3 hrs 1 min        ██░░░░░░░░░░░░░░░░░░   07.79 %
+Python       2 hrs 45 mins      █░░░░░░░░░░░░░░░░░░░   07.09 %
+JavaScript   2 hrs 29 mins      █░░░░░░░░░░░░░░░░░░░   06.40 %
 ```
 <!--END_SECTION:wakatime-->
 
