@@ -41,20 +41,20 @@ Python과 C#을 중심으로 만들고 배우고 있습니다.
 ## Recent Activity
 
 <!--START_SECTION:activity-->
-- `2026-07-26` Pushed to `main` in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-stack/commit/d535838ba45ef06584f9702fcf53897af6382aec))
+- `2026-07-26` Pushed to `main` in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-stack/commit/17473ae6145180b173004531c8f5c16d6acbb2f5))
 <!--END_SECTION:activity-->
 
 ## This Week I Spent My Time On
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 21 hrs 17 mins
+Total: 20 hrs 13 mins
 
-Other      20 hrs 23 mins     ██████████░░░░░░░░░░   48.92 %
-Bash       6 hrs 15 mins      ███░░░░░░░░░░░░░░░░░   15.02 %
-Groff      5 hrs 2 mins       ██░░░░░░░░░░░░░░░░░░   12.11 %
-Markdown   3 hrs 32 mins      ██░░░░░░░░░░░░░░░░░░   08.51 %
-Python     3 hrs 17 mins      ██░░░░░░░░░░░░░░░░░░   07.91 %
+Other      11 hrs 2 mins      ███████░░░░░░░░░░░░░   35.31 %
+Bash       8 hrs 13 mins      █████░░░░░░░░░░░░░░░   26.32 %
+Groff      4 hrs 2 mins       ███░░░░░░░░░░░░░░░░░   12.93 %
+Markdown   2 hrs 56 mins      ██░░░░░░░░░░░░░░░░░░   09.39 %
+Python     2 hrs 9 mins       █░░░░░░░░░░░░░░░░░░░   06.91 %
 ```
 <!--END_SECTION:wakatime-->
 
