@@ -48,13 +48,13 @@ Python과 C#을 중심으로 만들고 배우고 있습니다.
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 20 hrs 13 mins
+Total: 20 hrs 45 mins
 
-Other      11 hrs 2 mins      ███████░░░░░░░░░░░░░   35.31 %
-Bash       8 hrs 13 mins      █████░░░░░░░░░░░░░░░   26.32 %
-Groff      4 hrs 2 mins       ███░░░░░░░░░░░░░░░░░   12.93 %
-Markdown   2 hrs 56 mins      ██░░░░░░░░░░░░░░░░░░   09.39 %
-Python     2 hrs 9 mins       █░░░░░░░░░░░░░░░░░░░   06.91 %
+Other      10 hrs 58 mins     ███████░░░░░░░░░░░░░   34.60 %
+Bash       8 hrs 33 mins      █████░░░░░░░░░░░░░░░   26.97 %
+Groff      3 hrs 53 mins      ██░░░░░░░░░░░░░░░░░░   12.26 %
+Markdown   2 hrs 56 mins      ██░░░░░░░░░░░░░░░░░░   09.27 %
+Python     2 hrs 10 mins      █░░░░░░░░░░░░░░░░░░░   06.84 %
 ```
 <!--END_SECTION:wakatime-->
 
