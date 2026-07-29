@@ -179,7 +179,9 @@ def build_wakatime(stats: dict[str, Any]) -> str:
 
     name_width = max(len(str(language["name"])) for language in languages)
     lines: list[str] = []
-    total = stats.get("human_readable_total")
+    total = stats.get("human_readable_total_including_other_language") or stats.get(
+        "human_readable_total"
+    )
     if total:
         lines.extend((f"Total: {total}", ""))
 
@@ -208,7 +210,7 @@ def replace_section(
         re.DOTALL,
     )
     replacement = f"{start_marker}\n{body}\n{end_marker}"
-    updated, count = pattern.subn(replacement, content, count=1)
+    updated, count = pattern.subn(replacement, content)
 
     if count != 1:
         raise RuntimeError(

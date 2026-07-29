@@ -54,7 +54,7 @@ class RollingStats:
     prs_merged: int
 
 
-def api_request(path_or_url: str) -> tuple[Any, dict[str, str]]:
+def api_request(path_or_url: str) -> Any:
     if not TOKEN:
         raise RuntimeError("GH_STATS_TOKEN is not configured")
 
@@ -75,12 +75,9 @@ def api_request(path_or_url: str) -> tuple[Any, dict[str, str]]:
 
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
-            return json.load(response), dict(response.headers.items())
+            return json.load(response)
     except urllib.error.HTTPError as error:
-        detail = error.read().decode("utf-8", errors="replace")
-        raise RuntimeError(
-            f"GitHub API request failed ({error.code}) for {url}: {detail}"
-        ) from error
+        raise RuntimeError(f"GitHub API request failed ({error.code})") from error
 
 
 def graphql_request(query: str, variables: dict[str, Any]) -> dict[str, Any]:
@@ -104,15 +101,12 @@ def graphql_request(query: str, variables: dict[str, Any]) -> dict[str, Any]:
         with urllib.request.urlopen(request, timeout=30) as response:
             payload = json.load(response)
     except urllib.error.HTTPError as error:
-        detail = error.read().decode("utf-8", errors="replace")
-        raise RuntimeError(
-            f"GitHub GraphQL request failed ({error.code}): {detail}"
-        ) from error
+        raise RuntimeError(f"GitHub GraphQL request failed ({error.code})") from error
 
     if not isinstance(payload, dict):
         raise RuntimeError("GitHub GraphQL response is invalid")
     if payload.get("errors"):
-        raise RuntimeError(f"GitHub GraphQL request failed: {payload['errors']}")
+        raise RuntimeError("GitHub GraphQL request failed")
     data = payload.get("data")
     if not isinstance(data, dict):
         raise RuntimeError("GitHub GraphQL response has no data")
@@ -125,9 +119,9 @@ def paginated(path: str) -> list[dict[str, Any]]:
     page = 1
 
     while True:
-        payload, _ = api_request(f"{path}{separator}per_page=100&page={page}")
+        payload = api_request(f"{path}{separator}per_page=100&page={page}")
         if not isinstance(payload, list):
-            raise RuntimeError(f"Expected a list response from GitHub API: {path}")
+            raise RuntimeError("Expected a list response from GitHub API")
         items.extend(payload)
         if len(payload) < 100:
             break
@@ -137,14 +131,12 @@ def paginated(path: str) -> list[dict[str, Any]]:
 
 
 def authenticated_user() -> dict[str, Any]:
-    user, _ = api_request("/user")
+    user = api_request("/user")
     if not isinstance(user, dict):
         raise RuntimeError("GitHub user response is invalid")
     login = str(user.get("login", ""))
     if login.casefold() != USERNAME.casefold():
-        raise RuntimeError(
-            f"GH_STATS_TOKEN belongs to {login or 'an unknown user'}, not {USERNAME}"
-        )
+        raise RuntimeError("GH_STATS_TOKEN belongs to an unexpected GitHub account")
     return user
 
 
@@ -194,7 +186,7 @@ def search_issues(query: str) -> list[dict[str, Any]]:
         params = urllib.parse.urlencode(
             {"q": query, "per_page": 100, "page": page}
         )
-        payload, _ = api_request(f"/search/issues?{params}")
+        payload = api_request(f"/search/issues?{params}")
         if not isinstance(payload, dict):
             raise RuntimeError("GitHub issue search response is invalid")
         if payload.get("incomplete_results"):
@@ -348,7 +340,7 @@ def language_totals(repositories: list[dict[str, Any]]) -> dict[str, int]:
         languages_url = str(repository.get("languages_url", ""))
         if not languages_url:
             return {}
-        languages, _ = api_request(languages_url)
+        languages = api_request(languages_url)
         if not isinstance(languages, dict):
             return {}
         return {
