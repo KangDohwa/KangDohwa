@@ -48,7 +48,7 @@ Python과 C#을 중심으로 만들고 배우고 있습니다.
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 19 hrs 56 mins
+Total: 31 hrs 14 mins
 
 Other      11 hrs 18 mins     ███████░░░░░░░░░░░░░   36.17 %
 Bash       8 hrs 33 mins      █████░░░░░░░░░░░░░░░   27.39 %
