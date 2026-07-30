@@ -3,18 +3,22 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="./assets/profile-header-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="./assets/profile-header-light.svg">
-  <img alt="KangDohwa — Python and C# developer" src="./assets/profile-header-light.svg" width="100%">
+  <img alt="KangDohwa — learning Python, machine learning, and NLP" src="./assets/profile-header-light.svg" width="100%">
 </picture>
 
-<!-- TODO(profile): 아래 한 줄 소개를 최종 문구로 교체합니다. -->
-Python과 C#을 중심으로 만들고 배우고 있습니다.
+I'm learning Python, machine learning, and NLP by building with AI tools, then reviewing, testing, and debugging the results.
 
 </div>
 
-## Main
+## Learning & Building
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
+
+## Have Used
+
 ![C#](https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=dotnet&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
 
 ## Tools & Platforms
 
@@ -24,6 +28,7 @@ Python과 C#을 중심으로 만들고 배우고 있습니다.
 ![PyCharm](https://img.shields.io/badge/PyCharm-000000?style=flat-square&logo=pycharm&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![OpenAI Codex](https://img.shields.io/badge/OpenAI%20Codex-000000?style=flat-square&logo=openai&logoColor=white)
+![Google Cloud](https://img.shields.io/badge/Google%20Cloud-4285F4?style=flat-square&logo=googlecloud&logoColor=white)
 ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=flat-square&logo=cloudflare&logoColor=white)
 ![Oracle Cloud](https://img.shields.io/badge/Oracle%20Cloud-F80000?style=flat-square&logo=oracle&logoColor=white)
 
