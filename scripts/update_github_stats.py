@@ -24,6 +24,8 @@ STATS_PATH = ASSETS_DIR / "github-stats.svg"
 LANGUAGES_PATH = ASSETS_DIR / "top-langs.svg"
 MAX_LANGUAGES = 6
 ROLLING_DAYS = 30
+CARD_WIDTH = 394
+CARD_HEIGHT = 190
 
 LANGUAGE_COLORS = {
     "C#": "#178600",
@@ -396,7 +398,7 @@ def render_stats_card(stats: RollingStats, organizations: list[str]) -> str:
     )
 
     metric_nodes: list[str] = []
-    positions = ((32, 92), (250, 92), (32, 151), (250, 151))
+    positions = ((32, 92), (210, 92), (32, 151), (210, 151))
     for (label, value), (x, y) in zip(metrics, positions):
         metric_nodes.append(
             f'<text class="label" x="{x}" y="{y}" font-size="13">{escape(label)}</text>'
@@ -406,11 +408,11 @@ def render_stats_card(stats: RollingStats, organizations: list[str]) -> str:
         )
 
     subtitle = f"Last {ROLLING_DAYS} days · Personal + {len(organizations)} owner organizations"
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="480" height="190" viewBox="0 0 480 190" role="img" aria-labelledby="stats-title stats-desc">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{CARD_WIDTH}" height="{CARD_HEIGHT}" viewBox="0 0 {CARD_WIDTH} {CARD_HEIGHT}" role="img" aria-labelledby="stats-title stats-desc">
   <title id="stats-title">KangDohwa GitHub statistics</title>
   <desc id="stats-desc">Rolling {ROLLING_DAYS}-day contribution statistics from personal repositories and organizations owned by KangDohwa.</desc>
   <defs>{shared_style()}</defs>
-  <rect class="card" x="0.5" y="0.5" width="479" height="189" rx="12"/>
+  <rect class="card" x="0.5" y="0.5" width="{CARD_WIDTH - 1}" height="{CARD_HEIGHT - 1}" rx="12"/>
   <text class="title" x="28" y="36" font-size="20">GitHub Stats</text>
   <text class="subtitle" x="28" y="59" font-size="12">{escape(subtitle)}</text>
   {''.join(metric_nodes)}
@@ -430,7 +432,7 @@ def render_languages_card(totals: dict[str, int], organizations: list[str]) -> s
     rows: list[str] = []
     for index, (name, size) in enumerate(ranked):
         percent = size / total_bytes * 100 if total_bytes else 0
-        y = 83 + index * 26
+        y = 77 + index * 21
         bar_width = round(150 * percent / 100, 1)
         color = language_color(name)
         rows.append(
@@ -438,7 +440,7 @@ def render_languages_card(totals: dict[str, int], organizations: list[str]) -> s
             f'<rect x="154" y="{y - 12}" width="{bar_width}" height="8" rx="4" fill="{color}"/>'
             f'<circle cx="28" cy="{y - 4}" r="5" fill="{color}"/>'
             f'<text class="language" x="42" y="{y}" font-size="13">{escape(name)}</text>'
-            f'<text class="label" x="352" y="{y}" font-size="12" text-anchor="end">{percent:.1f}%</text>'
+            f'<text class="label" x="366" y="{y}" font-size="12" text-anchor="end">{percent:.1f}%</text>'
         )
 
     if not rows:
@@ -446,12 +448,11 @@ def render_languages_card(totals: dict[str, int], organizations: list[str]) -> s
             '<text class="subtitle" x="28" y="104" font-size="13">No language data available.</text>'
         )
 
-    height = max(132, 78 + max(1, len(ranked)) * 26)
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="380" height="{height}" viewBox="0 0 380 {height}" role="img" aria-labelledby="languages-title languages-desc">
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{CARD_WIDTH}" height="{CARD_HEIGHT}" viewBox="0 0 {CARD_WIDTH} {CARD_HEIGHT}" role="img" aria-labelledby="languages-title languages-desc">
   <title id="languages-title">KangDohwa most used languages</title>
   <desc id="languages-desc">Language distribution by bytes across personal repositories and organizations owned by KangDohwa.</desc>
   <defs>{shared_style()}</defs>
-  <rect class="card" x="0.5" y="0.5" width="379" height="{height - 1}" rx="12"/>
+  <rect class="card" x="0.5" y="0.5" width="{CARD_WIDTH - 1}" height="{CARD_HEIGHT - 1}" rx="12"/>
   <text class="title" x="24" y="34" font-size="19">Most Used Languages</text>
   <text class="subtitle" x="24" y="55" font-size="11">{escape(subtitle)}</text>
   {''.join(rows)}
