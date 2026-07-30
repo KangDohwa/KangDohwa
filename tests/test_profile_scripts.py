@@ -3,6 +3,7 @@ from io import BytesIO
 import unittest
 from unittest.mock import patch
 from urllib.error import HTTPError
+import xml.etree.ElementTree as ET
 
 from scripts import update_github_stats, update_readme
 
@@ -85,6 +86,26 @@ class ProfileScriptsTest(unittest.TestCase):
             payload = update_github_stats.api_request("/user")
 
         self.assertEqual({"ok": True}, payload)
+
+    def test_github_cards_share_midpoint_size(self) -> None:
+        stats = update_github_stats.RollingStats(1, 2, 3, 4)
+        cards = (
+            update_github_stats.render_stats_card(stats, []),
+            update_github_stats.render_languages_card(
+                {f"Language {index}": index for index in range(1, 7)}, []
+            ),
+        )
+
+        dimensions = {
+            (
+                root.attrib["width"],
+                root.attrib["height"],
+                root.attrib["viewBox"],
+            )
+            for root in (ET.fromstring(card) for card in cards)
+        }
+
+        self.assertEqual({("394", "190", "0 0 394 190")}, dimensions)
 
 
 if __name__ == "__main__":
