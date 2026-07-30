@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-labelledby="title desc">
   <title id="title">KangDohwa GitHub profile</title>
-  <desc id="desc">A light modern header featuring the name KangDohwa and the main technologies Python and C Sharp.</desc>
+  <desc id="desc">A light modern header featuring the name KangDohwa and Python.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#ffffff"/>
@@ -23,7 +23,7 @@
   <circle cx="990" cy="255" r="120" fill="#7c3aed" opacity="0.10" filter="url(#glow)"/>
   <rect x="72" y="64" width="68" height="6" rx="3" fill="url(#accent)"/>
   <text x="72" y="145" fill="#0f172a" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="60" font-weight="700" letter-spacing="-1">KangDohwa</text>
-  <text x="75" y="194" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="600" letter-spacing="4">PYTHON  ·  C#</text>
+  <text x="75" y="194" fill="#64748b" font-family="Inter, Segoe UI, Arial, sans-serif" font-size="20" font-weight="600" letter-spacing="4">PYTHON</text>
   <g transform="translate(1012 104)" fill="none" stroke="url(#accent)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
     <path d="M35 0 0 36l35 36"/>
     <path d="m93 0 35 36-35 36"/>
