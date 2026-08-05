@@ -85,6 +85,9 @@ def format_event(event: dict[str, Any]) -> str | None:
     repository_link = f"[`{repository}`](https://github.com/{repository})"
     date = format_date(created_at)
 
+    if event_type == "PublicEvent":
+        return f"- `{date}` Made {repository_link} public"
+
     if event_type == "PushEvent":
         branch = payload.get("ref", "").removeprefix("refs/heads/") or "a branch"
         head = payload.get("head")
