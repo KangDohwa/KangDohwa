@@ -49,8 +49,9 @@ I'm learning Python, machine learning, and NLP by building with AI tools, then r
 ## Recent Activity
 
 <!--START_SECTION:activity-->
+- `2026-08-05` Pushed to `main` in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-stack/commit/1706cb875f8fdb5c760fc97c0bc1b5e43f900e98))
 - `2026-08-04` Pushed to `main` in [`KangDohwa/ponytail`](https://github.com/KangDohwa/ponytail) ([latest commit](https://github.com/KangDohwa/ponytail/commit/b4ed6f278c36adc18ef8a3359c6f5cd8d02697bd))
-- `2026-07-29` Pushed to `main` in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-stack/commit/af513d8173cc60c8107c6576922b095dfef289eb))
+- `2026-08-01` Made [`KangDohwa/hermes-runtime-clock`](https://github.com/KangDohwa/hermes-runtime-clock) public
 <!--END_SECTION:activity-->
 
 ## This Week I Spent My Time On
