@@ -49,6 +49,7 @@ I'm learning Python, machine learning, and NLP by building with AI tools, then r
 ## Recent Activity
 
 <!--START_SECTION:activity-->
+- `2026-08-04` Pushed to `main` in [`KangDohwa/ponytail`](https://github.com/KangDohwa/ponytail) ([latest commit](https://github.com/KangDohwa/ponytail/commit/b4ed6f278c36adc18ef8a3359c6f5cd8d02697bd))
 - `2026-07-29` Pushed to `main` in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-stack/commit/af513d8173cc60c8107c6576922b095dfef289eb))
 <!--END_SECTION:activity-->
 
@@ -56,13 +57,13 @@ I'm learning Python, machine learning, and NLP by building with AI tools, then r
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 20 hrs 7 mins
+Total: 18 hrs 40 mins
 
-Other      8 hrs 48 mins      █████████░░░░░░░░░░░   43.76 %
-Markdown   3 hrs 48 mins      ████░░░░░░░░░░░░░░░░   18.89 %
-Python     3 hrs 15 mins      ███░░░░░░░░░░░░░░░░░   16.15 %
-VBScript   1 hr 38 mins       ██░░░░░░░░░░░░░░░░░░   08.18 %
-Bash       55 mins            █░░░░░░░░░░░░░░░░░░░   04.60 %
+Other      8 hrs 8 mins       █████████░░░░░░░░░░░   43.52 %
+Markdown   3 hrs 48 mins      ████░░░░░░░░░░░░░░░░   20.35 %
+Python     2 hrs 7 mins       ██░░░░░░░░░░░░░░░░░░   11.41 %
+VBScript   1 hr 38 mins       ██░░░░░░░░░░░░░░░░░░   08.81 %
+Bash       1 hr 19 mins       █░░░░░░░░░░░░░░░░░░░   07.06 %
 ```
 <!--END_SECTION:wakatime-->
 
