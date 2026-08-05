@@ -9,6 +9,24 @@ from scripts import update_github_stats, update_readme
 
 
 class ProfileScriptsTest(unittest.TestCase):
+    def test_public_event_is_rendered(self) -> None:
+        output = update_readme.build_activity(
+            [
+                {
+                    "type": "PublicEvent",
+                    "repo": {"name": "KangDohwa/hermes-runtime-clock"},
+                    "created_at": "2026-08-01T13:29:41Z",
+                }
+            ]
+        )
+
+        self.assertEqual(
+            "- `2026-08-01` Made "
+            "[`KangDohwa/hermes-runtime-clock`]("
+            "https://github.com/KangDohwa/hermes-runtime-clock) public",
+            output,
+        )
+
     def test_wakatime_total_includes_other_language(self) -> None:
         output = update_readme.build_wakatime(
             {
