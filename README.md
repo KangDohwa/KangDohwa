@@ -49,6 +49,8 @@ I'm learning Python, machine learning, and NLP by building with AI tools, then r
 ## Recent Activity
 
 <!--START_SECTION:activity-->
+- `2026-08-05` Pushed to `main` in [`KangDohwa/hermes-session-lens`](https://github.com/KangDohwa/hermes-session-lens) ([latest commit](https://github.com/KangDohwa/hermes-session-lens/commit/ed83631fb95c9262427f7b8f656bcc28acb06ab8))
+- `2026-08-05` Made [`KangDohwa/hermes-session-lens`](https://github.com/KangDohwa/hermes-session-lens) public
 - `2026-08-05` Pushed to `main` in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-stack/commit/1706cb875f8fdb5c760fc97c0bc1b5e43f900e98))
 - `2026-08-04` Pushed to `main` in [`KangDohwa/ponytail`](https://github.com/KangDohwa/ponytail) ([latest commit](https://github.com/KangDohwa/ponytail/commit/b4ed6f278c36adc18ef8a3359c6f5cd8d02697bd))
 - `2026-08-01` Made [`KangDohwa/hermes-runtime-clock`](https://github.com/KangDohwa/hermes-runtime-clock) public
@@ -58,13 +60,13 @@ I'm learning Python, machine learning, and NLP by building with AI tools, then r
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 18 hrs 40 mins
+Total: 14 hrs
 
-Other      8 hrs 8 mins       █████████░░░░░░░░░░░   43.52 %
-Markdown   3 hrs 48 mins      ████░░░░░░░░░░░░░░░░   20.35 %
-Python     2 hrs 7 mins       ██░░░░░░░░░░░░░░░░░░   11.41 %
-VBScript   1 hr 38 mins       ██░░░░░░░░░░░░░░░░░░   08.81 %
-Bash       1 hr 19 mins       █░░░░░░░░░░░░░░░░░░░   07.06 %
+Other      5 hrs 43 mins      ████████░░░░░░░░░░░░   40.59 %
+Markdown   3 hrs 15 mins      █████░░░░░░░░░░░░░░░   23.12 %
+Python     2 hrs 7 mins       ███░░░░░░░░░░░░░░░░░   15.11 %
+VBScript   1 hr 38 mins       ██░░░░░░░░░░░░░░░░░░   11.69 %
+JSON       25 mins            █░░░░░░░░░░░░░░░░░░░   03.01 %
 ```
 <!--END_SECTION:wakatime-->
 
