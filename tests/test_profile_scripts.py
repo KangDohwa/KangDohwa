@@ -1,5 +1,7 @@
 from email.message import Message
 from io import BytesIO
+import os
+from pathlib import Path
 import unittest
 from unittest.mock import patch
 from urllib.error import HTTPError
@@ -9,6 +11,13 @@ from scripts import update_github_stats, update_readme
 
 
 class ProfileScriptsTest(unittest.TestCase):
+    def test_profile_workflow_uses_wakapi_variable_and_secret(self) -> None:
+        workflow = Path(".github/workflows/update-profile.yml").read_text(encoding="utf-8")
+
+        self.assertIn("WAKAPI_BASE_URL: ${{ vars.WAKAPI_BASE_URL }}", workflow)
+        self.assertIn("WAKAPI_API_KEY: ${{ secrets.WAKAPI_API_KEY }}", workflow)
+        self.assertNotIn("WAKATIME_API_KEY", workflow)
+
     def test_public_event_is_rendered(self) -> None:
         output = update_readme.build_activity(
             [
@@ -40,6 +49,58 @@ class ProfileScriptsTest(unittest.TestCase):
         )
 
         self.assertIn("Total: 2 hrs", output)
+
+    def test_wakapi_stats_use_configured_https_compatibility_endpoint(self) -> None:
+        captured = {}
+
+        def fake_urlopen(request, timeout):
+            captured["url"] = request.full_url
+            captured["authorization"] = request.get_header("Authorization")
+            captured["timeout"] = timeout
+            return BytesIO(b'{"data":{"languages":[]}}')
+
+        with (
+            patch.dict(
+                os.environ,
+                {
+                    "WAKAPI_BASE_URL": "https://stats.example.com/",
+                    "WAKAPI_API_KEY": "test-key",
+                },
+                clear=False,
+            ),
+            patch.object(update_readme.urllib.request, "urlopen", side_effect=fake_urlopen),
+        ):
+            stats = update_readme.fetch_wakatime_stats()
+
+        self.assertEqual(stats, {"languages": []})
+        self.assertEqual(
+            captured["url"],
+            "https://stats.example.com/api/compat/wakatime/v1/users/current/stats/last_7_days",
+        )
+        self.assertTrue(captured["authorization"].startswith("Basic "))
+        self.assertNotIn("test-key", captured["authorization"])
+        self.assertEqual(captured["timeout"], 30)
+
+    def test_wakapi_rejects_insecure_or_partial_configuration(self) -> None:
+        with (
+            patch.dict(
+                os.environ,
+                {"WAKAPI_BASE_URL": "http://stats.example.com", "WAKAPI_API_KEY": "key"},
+                clear=False,
+            ),
+            self.assertRaisesRegex(RuntimeError, "HTTPS"),
+        ):
+            update_readme.fetch_wakatime_stats()
+
+        with (
+            patch.dict(os.environ, {"WAKAPI_BASE_URL": "https://stats.example.com"}, clear=True),
+            self.assertRaisesRegex(RuntimeError, "configured together"),
+        ):
+            update_readme.fetch_wakatime_stats()
+
+    def test_wakapi_missing_configuration_skips_update(self) -> None:
+        with patch.dict(os.environ, {}, clear=True):
+            self.assertIsNone(update_readme.fetch_wakatime_stats())
 
     def test_replace_section_rejects_duplicate_markers(self) -> None:
         section = "<!-- START -->old<!-- END -->"

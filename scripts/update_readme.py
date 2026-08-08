@@ -4,6 +4,8 @@ from base64 import b64encode
 import json
 import os
 import re
+import urllib.error
+import urllib.parse
 import urllib.request
 from datetime import datetime
 from pathlib import Path
@@ -46,13 +48,38 @@ def fetch_public_events() -> list[dict[str, Any]]:
 
 
 def fetch_wakatime_stats() -> dict[str, Any] | None:
-    api_key = os.environ.get("WAKATIME_API_KEY")
-    if not api_key:
+    base_url = os.environ.get("WAKAPI_BASE_URL", "").strip()
+    api_key = os.environ.get("WAKAPI_API_KEY", "").strip()
+    if not base_url and not api_key:
         return None
+    if not base_url or not api_key:
+        raise RuntimeError("WAKAPI_BASE_URL and WAKAPI_API_KEY must be configured together")
+
+    parsed = urllib.parse.urlsplit(base_url)
+    if parsed.scheme != "https":
+        raise RuntimeError("WAKAPI_BASE_URL must use HTTPS")
+    if (
+        not parsed.hostname
+        or parsed.username is not None
+        or parsed.password is not None
+        or parsed.path not in ("", "/")
+        or parsed.query
+        or parsed.fragment
+    ):
+        raise RuntimeError("WAKAPI_BASE_URL must be an HTTPS origin without a path")
+    endpoint = urllib.parse.urlunsplit(
+        (
+            parsed.scheme,
+            parsed.netloc,
+            "/api/compat/wakatime/v1/users/current/stats/last_7_days",
+            "",
+            "",
+        )
+    )
 
     encoded_key = b64encode(api_key.encode("utf-8")).decode("ascii")
     request = urllib.request.Request(
-        "https://wakatime.com/api/v1/users/current/stats/last_7_days",
+        endpoint,
         headers={
             "Accept": "application/json",
             "Authorization": f"Basic {encoded_key}",
@@ -60,8 +87,13 @@ def fetch_wakatime_stats() -> dict[str, Any] | None:
         },
     )
 
-    with urllib.request.urlopen(request, timeout=30) as response:
-        payload = json.load(response)
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            payload = json.load(response)
+    except urllib.error.HTTPError as error:
+        raise RuntimeError(f"Wakapi stats request failed ({error.code})") from None
+    except urllib.error.URLError:
+        raise RuntimeError("Wakapi stats request failed") from None
 
     stats = payload.get("data")
     if not isinstance(stats, dict):
@@ -255,7 +287,7 @@ def main() -> None:
     wakatime = build_wakatime(wakatime_stats) if wakatime_stats is not None else None
     changed = update_readme(build_activity(events), wakatime)
     if wakatime_stats is None:
-        print("WakaTime update skipped: WAKATIME_API_KEY is not configured.")
+        print("Wakapi update skipped: WAKAPI_BASE_URL and WAKAPI_API_KEY are not configured.")
     print("README updated." if changed else "README is already up to date.")
 
 
