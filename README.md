@@ -49,24 +49,24 @@ I'm learning Python, machine learning, and NLP by building with AI tools, then r
 ## Recent Activity
 
 <!--START_SECTION:activity-->
+- `2026-08-10` Pushed to `main` in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-customizations/commit/b88ee04af406ffd333706d638ec3a286f8f80244))
+- `2026-08-10` Closed [issue #22](https://github.com/KangDohwa/dohwa-hermes-stack/issues/22) in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack)
+- `2026-08-10` Closed [issue #1](https://github.com/KangDohwa/dohwa-hermes-customizations/issues/1) in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations)
+- `2026-08-10` Pushed to `main` in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-stack/commit/afc3e2a6ba6c316fb03db08c93c902b8e76861e6))
 - `2026-08-09` Pushed to `main` in [`KangDohwa/hermes-soul-reloader`](https://github.com/KangDohwa/hermes-soul-reloader) ([latest commit](https://github.com/KangDohwa/hermes-soul-reloader/commit/84df67f0c5893dbf64d3d1cb84efe2fac57e91d6))
-- `2026-08-09` Closed [issue #1](https://github.com/KangDohwa/hermes-soul-reloader/issues/1) in [`KangDohwa/hermes-soul-reloader`](https://github.com/KangDohwa/hermes-soul-reloader)
-- `2026-08-05` Pushed to `main` in [`KangDohwa/hermes-session-lens`](https://github.com/KangDohwa/hermes-session-lens) ([latest commit](https://github.com/KangDohwa/hermes-session-lens/commit/ed83631fb95c9262427f7b8f656bcc28acb06ab8))
-- `2026-08-05` Made [`KangDohwa/hermes-session-lens`](https://github.com/KangDohwa/hermes-session-lens) public
-- `2026-08-05` Pushed to `main` in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-stack/commit/1706cb875f8fdb5c760fc97c0bc1b5e43f900e98))
 <!--END_SECTION:activity-->
 
 ## This Week I Spent My Time On
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 24 hrs 9 mins
+Total: 26 hrs 55 mins
 
-Other        10 hrs 56 mins     █████████░░░░░░░░░░░   45.31 %
-Markdown     3 hrs 8 mins       ███░░░░░░░░░░░░░░░░░   13.01 %
-TypeScript   3 hrs 5 mins       ███░░░░░░░░░░░░░░░░░   12.78 %
-Python       2 hrs 56 mins      ██░░░░░░░░░░░░░░░░░░   12.15 %
-Bash         2 hrs 35 mins      ██░░░░░░░░░░░░░░░░░░   10.75 %
+Other        11 hrs 22 mins     ████████░░░░░░░░░░░░   42.26 %
+Python       4 hrs 25 mins      ███░░░░░░░░░░░░░░░░░   16.44 %
+Markdown     3 hrs 41 mins      ███░░░░░░░░░░░░░░░░░   13.69 %
+TypeScript   3 hrs 5 mins       ██░░░░░░░░░░░░░░░░░░   11.46 %
+Bash         2 hrs 35 mins      ██░░░░░░░░░░░░░░░░░░   09.64 %
 ```
 <!--END_SECTION:wakatime-->
 
