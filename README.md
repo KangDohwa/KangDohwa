@@ -49,24 +49,22 @@ I'm learning Python, machine learning, and NLP by building with AI tools, then r
 ## Recent Activity
 
 <!--START_SECTION:activity-->
-- `2026-08-10` Pushed to `main` in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-customizations/commit/b88ee04af406ffd333706d638ec3a286f8f80244))
+- `2026-08-11` Pushed to `main` in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-customizations/commit/b0a743e20acaa049979bda3a3ebd3819eef37b75))
+- `2026-08-11` Closed [issue #11](https://github.com/KangDohwa/dohwa-hermes-customizations/issues/11) in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations)
 - `2026-08-10` Closed [issue #22](https://github.com/KangDohwa/dohwa-hermes-stack/issues/22) in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack)
-- `2026-08-10` Closed [issue #1](https://github.com/KangDohwa/dohwa-hermes-customizations/issues/1) in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations)
-- `2026-08-10` Pushed to `main` in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-stack/commit/afc3e2a6ba6c316fb03db08c93c902b8e76861e6))
-- `2026-08-09` Pushed to `main` in [`KangDohwa/hermes-soul-reloader`](https://github.com/KangDohwa/hermes-soul-reloader) ([latest commit](https://github.com/KangDohwa/hermes-soul-reloader/commit/84df67f0c5893dbf64d3d1cb84efe2fac57e91d6))
 <!--END_SECTION:activity-->
 
 ## This Week I Spent My Time On
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 26 hrs 55 mins
+Total: 28 hrs 31 mins
 
-Other        11 hrs 22 mins     ████████░░░░░░░░░░░░   42.26 %
-Python       4 hrs 25 mins      ███░░░░░░░░░░░░░░░░░   16.44 %
-Markdown     3 hrs 41 mins      ███░░░░░░░░░░░░░░░░░   13.69 %
-TypeScript   3 hrs 5 mins       ██░░░░░░░░░░░░░░░░░░   11.46 %
-Bash         2 hrs 35 mins      ██░░░░░░░░░░░░░░░░░░   09.64 %
+Other        11 hrs 28 mins     ████████░░░░░░░░░░░░   40.19 %
+Python       5 hrs 11 mins      ████░░░░░░░░░░░░░░░░   18.18 %
+Markdown     4 hrs 34 mins      ███░░░░░░░░░░░░░░░░░   16.06 %
+TypeScript   3 hrs 5 mins       ██░░░░░░░░░░░░░░░░░░   10.82 %
+Bash         2 hrs 27 mins      ██░░░░░░░░░░░░░░░░░░   08.61 %
 ```
 <!--END_SECTION:wakatime-->
 
