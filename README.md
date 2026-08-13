@@ -49,22 +49,21 @@ I'm learning Python, machine learning, and NLP by building with AI tools, then r
 ## Recent Activity
 
 <!--START_SECTION:activity-->
-- `2026-08-11` Pushed to `main` in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-customizations/commit/b0a743e20acaa049979bda3a3ebd3819eef37b75))
-- `2026-08-11` Closed [issue #11](https://github.com/KangDohwa/dohwa-hermes-customizations/issues/11) in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations)
-- `2026-08-10` Closed [issue #22](https://github.com/KangDohwa/dohwa-hermes-stack/issues/22) in [`KangDohwa/dohwa-hermes-stack`](https://github.com/KangDohwa/dohwa-hermes-stack)
+- `2026-08-12` Opened [issue #15](https://github.com/KangDohwa/dohwa-hermes-customizations/issues/15) in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations)
+- `2026-08-12` Pushed to `main` in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-customizations/commit/ea2ffab341ddb9240b1caed1795f6d105bc95e4e))
 <!--END_SECTION:activity-->
 
 ## This Week I Spent My Time On
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 28 hrs 31 mins
+Total: 29 hrs 14 mins
 
-Other        11 hrs 28 mins     ████████░░░░░░░░░░░░   40.19 %
-Python       5 hrs 11 mins      ████░░░░░░░░░░░░░░░░   18.18 %
-Markdown     4 hrs 34 mins      ███░░░░░░░░░░░░░░░░░   16.06 %
-TypeScript   3 hrs 5 mins       ██░░░░░░░░░░░░░░░░░░   10.82 %
-Bash         2 hrs 27 mins      ██░░░░░░░░░░░░░░░░░░   08.61 %
+Other        11 hrs 17 mins     ████████░░░░░░░░░░░░   38.61 %
+Python       5 hrs 44 mins      ████░░░░░░░░░░░░░░░░   19.61 %
+Markdown     4 hrs 43 mins      ███░░░░░░░░░░░░░░░░░   16.15 %
+TypeScript   3 hrs 5 mins       ██░░░░░░░░░░░░░░░░░░   10.55 %
+Bash         2 hrs 28 mins      ██░░░░░░░░░░░░░░░░░░   08.48 %
 ```
 <!--END_SECTION:wakatime-->
 
