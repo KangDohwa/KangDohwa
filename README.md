@@ -58,13 +58,13 @@ I'm learning Python, machine learning, and NLP by building with AI tools, then r
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 28 hrs 49 mins
+Total: 26 hrs 37 mins
 
-Markdown   9 hrs 31 mins      ███████░░░░░░░░░░░░░   33.03 %
-Bash       9 hrs 7 mins       ██████░░░░░░░░░░░░░░   31.67 %
-Other      4 hrs 28 mins      ███░░░░░░░░░░░░░░░░░   15.54 %
-Python     3 hrs 46 mins      ███░░░░░░░░░░░░░░░░░   13.08 %
-JSON       1 hr 7 mins        █░░░░░░░░░░░░░░░░░░░   03.88 %
+Bash       8 hrs 56 mins      ███████░░░░░░░░░░░░░   33.59 %
+Markdown   7 hrs 45 mins      ██████░░░░░░░░░░░░░░   29.12 %
+Other      4 hrs 11 mins      ███░░░░░░░░░░░░░░░░░   15.72 %
+Python     4 hrs              ███░░░░░░░░░░░░░░░░░   15.03 %
+JSON       1 hr 7 mins        █░░░░░░░░░░░░░░░░░░░   04.21 %
 ```
 <!--END_SECTION:wakatime-->
 
