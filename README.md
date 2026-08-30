@@ -50,21 +50,19 @@ I'm learning Python, machine learning, and NLP by building with AI tools, then r
 
 <!--START_SECTION:activity-->
 - `2026-08-18` Pushed to `main` in [`KangDohwa/hermes-soul-reloader`](https://github.com/KangDohwa/hermes-soul-reloader) ([latest commit](https://github.com/KangDohwa/hermes-soul-reloader/commit/836de7f2efcd1de39b716f15027679bec08918a8))
-- `2026-08-12` Opened [issue #15](https://github.com/KangDohwa/dohwa-hermes-customizations/issues/15) in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations)
-- `2026-08-12` Pushed to `main` in [`KangDohwa/dohwa-hermes-customizations`](https://github.com/KangDohwa/dohwa-hermes-customizations) ([latest commit](https://github.com/KangDohwa/dohwa-hermes-customizations/commit/ea2ffab341ddb9240b1caed1795f6d105bc95e4e))
 <!--END_SECTION:activity-->
 
 ## This Week I Spent My Time On
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 26 hrs 37 mins
+Total: 25 hrs 30 mins
 
-Bash       8 hrs 56 mins      ███████░░░░░░░░░░░░░   33.59 %
-Markdown   7 hrs 45 mins      ██████░░░░░░░░░░░░░░   29.12 %
-Other      4 hrs 11 mins      ███░░░░░░░░░░░░░░░░░   15.72 %
-Python     4 hrs              ███░░░░░░░░░░░░░░░░░   15.03 %
-JSON       1 hr 7 mins        █░░░░░░░░░░░░░░░░░░░   04.21 %
+Bash       8 hrs 56 mins      ███████░░░░░░░░░░░░░   35.06 %
+Markdown   7 hrs 23 mins      ██████░░░░░░░░░░░░░░   28.97 %
+Python     3 hrs 46 mins      ███░░░░░░░░░░░░░░░░░   14.78 %
+Other      3 hrs 40 mins      ███░░░░░░░░░░░░░░░░░   14.41 %
+JSON       1 hr 7 mins        █░░░░░░░░░░░░░░░░░░░   04.39 %
 ```
 <!--END_SECTION:wakatime-->
 
