@@ -56,13 +56,13 @@ _표시할 최근 공개 활동이 없습니다._
 
 <!--START_SECTION:wakatime-->
 ```text
-Total: 21 hrs 8 mins
+Total: 13 hrs 11 mins
 
-Bash       8 hrs 56 mins      ████████░░░░░░░░░░░░   42.33 %
-Markdown   3 hrs 59 mins      ████░░░░░░░░░░░░░░░░   18.90 %
-Python     3 hrs 44 mins      ████░░░░░░░░░░░░░░░░   17.74 %
-Other      3 hrs 11 mins      ███░░░░░░░░░░░░░░░░░   15.14 %
-JSON       1 hr 6 mins        █░░░░░░░░░░░░░░░░░░░   05.26 %
+Python     4 hrs 9 mins       ██████░░░░░░░░░░░░░░   31.52 %
+Other      3 hrs 14 mins      █████░░░░░░░░░░░░░░░   24.51 %
+Markdown   3 hrs 2 mins       █████░░░░░░░░░░░░░░░   23.05 %
+Bash       2 hrs 21 mins      ████░░░░░░░░░░░░░░░░   17.87 %
+JSON       24 mins            █░░░░░░░░░░░░░░░░░░░   03.05 %
 ```
 <!--END_SECTION:wakatime-->
 
