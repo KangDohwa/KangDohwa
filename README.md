@@ -55,11 +55,7 @@ _표시할 최근 공개 활동이 없습니다._
 ## This Week I Spent My Time On
 
 <!--START_SECTION:wakatime-->
-```text
-Total: 33 mins
-
-Other   33 mins            ████████████████████   100.00 %
-```
+_No activity tracked._
 <!--END_SECTION:wakatime-->
 
 ## GitHub Stats
