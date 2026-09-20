@@ -55,15 +55,7 @@ _표시할 최근 공개 활동이 없습니다._
 ## This Week I Spent My Time On
 
 <!--START_SECTION:wakatime-->
-```text
-Total: 27 mins
-
-Python     9 mins             ███████░░░░░░░░░░░░░   32.66 %
-Markdown   5 mins             ████░░░░░░░░░░░░░░░░   21.34 %
-Other      5 mins             ████░░░░░░░░░░░░░░░░   19.83 %
-JSON       5 mins             ████░░░░░░░░░░░░░░░░   18.11 %
-Diff       2 mins             ██░░░░░░░░░░░░░░░░░░   08.06 %
-```
+_No activity tracked._
 <!--END_SECTION:wakatime-->
 
 ## GitHub Stats
