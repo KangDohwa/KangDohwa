@@ -25,7 +25,12 @@ LANGUAGES_PATH = ASSETS_DIR / "top-langs.svg"
 MAX_LANGUAGES = 6
 ROLLING_DAYS = 30
 CARD_WIDTH = 394
-CARD_HEIGHT = 190
+CARD_HEIGHT = 214
+INCLUDED_FORKS = {
+    name.strip().casefold()
+    for name in os.environ.get("STATS_INCLUDED_FORKS", "").split(",")
+    if name.strip()
+}
 
 LANGUAGE_COLORS = {
     "C#": "#178600",
@@ -173,7 +178,9 @@ def included_repositories(organizations: list[str]) -> list[dict[str, Any]]:
     unique: dict[str, dict[str, Any]] = {}
     for repository in repositories:
         full_name = str(repository.get("full_name", ""))
-        if not full_name or repository.get("fork"):
+        if not full_name:
+            continue
+        if repository.get("fork") and full_name.casefold() not in INCLUDED_FORKS:
             continue
         unique[full_name.casefold()] = repository
 
@@ -389,9 +396,14 @@ def shared_style() -> str:
     """.strip()
 
 
-def render_stats_card(stats: RollingStats, organizations: list[str]) -> str:
+def render_stats_card(
+    stats: RollingStats,
+    organizations: list[str],
+    *,
+    updated_date: str | None = None,
+) -> str:
     metrics = (
-        ("Repositories", stats.repositories),
+        ("Active repositories", stats.repositories),
         ("PRs opened", stats.prs_opened),
         ("Commits", stats.commits),
         ("PRs merged", stats.prs_merged),
@@ -408,26 +420,31 @@ def render_stats_card(stats: RollingStats, organizations: list[str]) -> str:
         )
 
     subtitle = f"Last {ROLLING_DAYS} days · Personal + {len(organizations)} owner organizations"
+    updated_date = updated_date or datetime.now(timezone.utc).date().isoformat()
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{CARD_WIDTH}" height="{CARD_HEIGHT}" viewBox="0 0 {CARD_WIDTH} {CARD_HEIGHT}" role="img" aria-labelledby="stats-title stats-desc">
   <title id="stats-title">KangDohwa GitHub statistics</title>
   <desc id="stats-desc">Rolling {ROLLING_DAYS}-day contribution statistics from personal repositories and organizations owned by KangDohwa.</desc>
   <defs>{shared_style()}</defs>
   <rect class="card" x="0.5" y="0.5" width="{CARD_WIDTH - 1}" height="{CARD_HEIGHT - 1}" rx="12"/>
-  <text class="title" x="28" y="36" font-size="20">GitHub Stats</text>
+  <text class="title" x="28" y="36" font-size="20">GitHub Activity</text>
   <text class="subtitle" x="28" y="59" font-size="12">{escape(subtitle)}</text>
   {''.join(metric_nodes)}
+  <text class="subtitle" x="28" y="202" font-size="11">Updated: {escape(updated_date)} UTC</text>
 </svg>
 """
 
 
-def render_languages_card(totals: dict[str, int], organizations: list[str]) -> str:
+def render_languages_card(
+    totals: dict[str, int],
+    organizations: list[str],
+    *,
+    updated_date: str | None = None,
+) -> str:
     ranked = sorted(totals.items(), key=lambda item: item[1], reverse=True)
     total_bytes = sum(size for _, size in ranked)
     ranked = ranked[:MAX_LANGUAGES]
-    subtitle = (
-        f"Personal repositories + {len(organizations)} owner organization"
-        f"{'s' if len(organizations) != 1 else ''}"
-    )
+    subtitle = "Current repository contents · Measured by bytes"
+    updated_date = updated_date or datetime.now(timezone.utc).date().isoformat()
 
     rows: list[str] = []
     for index, (name, size) in enumerate(ranked):
@@ -449,13 +466,14 @@ def render_languages_card(totals: dict[str, int], organizations: list[str]) -> s
         )
 
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{CARD_WIDTH}" height="{CARD_HEIGHT}" viewBox="0 0 {CARD_WIDTH} {CARD_HEIGHT}" role="img" aria-labelledby="languages-title languages-desc">
-  <title id="languages-title">KangDohwa most used languages</title>
-  <desc id="languages-desc">Language distribution by bytes across personal repositories and organizations owned by KangDohwa.</desc>
+  <title id="languages-title">KangDohwa repository languages</title>
+  <desc id="languages-desc">Language distribution by bytes across personal repositories and {len(organizations)} owner organizations, including explicitly selected forks. This is not coding time or proficiency.</desc>
   <defs>{shared_style()}</defs>
   <rect class="card" x="0.5" y="0.5" width="{CARD_WIDTH - 1}" height="{CARD_HEIGHT - 1}" rx="12"/>
-  <text class="title" x="24" y="34" font-size="19">Most Used Languages</text>
+  <text class="title" x="24" y="34" font-size="19">Repository Languages</text>
   <text class="subtitle" x="24" y="55" font-size="11">{escape(subtitle)}</text>
   {''.join(rows)}
+  <text class="subtitle" x="24" y="202" font-size="11">Updated: {escape(updated_date)} UTC</text>
 </svg>
 """
 
@@ -472,23 +490,41 @@ def main() -> None:
     authenticated_user()
     organizations = owner_organizations()
     repositories = included_repositories(organizations)
-    stats = rolling_stats(repositories)
-    totals = language_totals(repositories)
-
+    updated_date = datetime.now(timezone.utc).date().isoformat()
     changed = False
-    changed |= write_if_changed(
-        STATS_PATH, render_stats_card(stats, organizations)
-    )
-    changed |= write_if_changed(
-        LANGUAGES_PATH, render_languages_card(totals, organizations)
+    failed = False
+    print(
+        f"Collecting cards from {len(repositories)} repositories "
+        f"and {len(organizations)} owner organizations."
     )
 
-    print(
-        f"Generated GitHub cards from {len(repositories)} repositories "
-        f"and {len(organizations)} owner organizations; last {ROLLING_DAYS} days: "
-        f"{stats.repositories} active repositories, {stats.commits} commits, "
-        f"{stats.prs_opened} PRs opened, {stats.prs_merged} PRs merged."
-    )
+    try:
+        stats = rolling_stats(repositories)
+        changed |= write_if_changed(
+            STATS_PATH,
+            render_stats_card(stats, organizations, updated_date=updated_date),
+        )
+        print(
+            f"Last {ROLLING_DAYS} days: {stats.repositories} active repositories, "
+            f"{stats.commits} commits, {stats.prs_opened} PRs opened, "
+            f"{stats.prs_merged} PRs merged."
+        )
+    except (RuntimeError, urllib.error.URLError, TimeoutError, ValueError):
+        failed = True
+        print("Activity card update failed; keeping its last successful data.")
+
+    try:
+        totals = language_totals(repositories)
+        changed |= write_if_changed(
+            LANGUAGES_PATH,
+            render_languages_card(totals, organizations, updated_date=updated_date),
+        )
+    except (RuntimeError, urllib.error.URLError, TimeoutError, ValueError):
+        failed = True
+        print("Language card update failed; keeping its last successful data.")
+
+    if failed:
+        raise RuntimeError("One or more GitHub cards could not be updated.")
     print("GitHub cards updated." if changed else "GitHub cards are up to date.")
 
 
