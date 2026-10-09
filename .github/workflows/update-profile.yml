@@ -1,4 +1,4 @@
-name: Update profile activity
+name: Update profile data
 
 on:
   workflow_dispatch:
@@ -19,26 +19,32 @@ jobs:
 
     steps:
       - name: Check out profile repository
+        id: checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - name: Update profile data
+      - name: Update recent activity
+        id: activity
+        continue-on-error: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
           PROFILE_USERNAME: KangDohwa
           PROFILE_REPOSITORY_OWNER: KangDohwa
         run: python3 scripts/update_readme.py
 
       - name: Generate GitHub statistics cards
+        id: stats
+        continue-on-error: true
         env:
           GH_STATS_TOKEN: ${{ secrets.GH_STATS_TOKEN }}
           PROFILE_USERNAME: KangDohwa
+          STATS_INCLUDED_FORKS: KangDohwa/Maestroid
         run: python3 scripts/update_github_stats.py
 
       - name: Commit changes
+        if: ${{ !cancelled() && steps.checkout.outcome == 'success' }}
         run: |
           if git diff --quiet -- README.md assets/github-stats.svg assets/top-langs.svg; then
-            echo "No README changes to commit."
+            echo "No profile changes to commit."
             exit 0
           fi
 
@@ -47,3 +53,9 @@ jobs:
           git add README.md assets/github-stats.svg assets/top-langs.svg
           git commit -m "chore: update profile data"
           git push
+
+      - name: Report incomplete updates
+        if: ${{ !cancelled() && (steps.activity.outcome == 'failure' || steps.stats.outcome == 'failure') }}
+        run: |
+          echo "::error::Some profile data could not be refreshed. Successful updates were committed; failed sections retain their last successful data."
+          exit 1

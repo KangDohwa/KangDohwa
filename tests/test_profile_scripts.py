@@ -27,20 +27,6 @@ class ProfileScriptsTest(unittest.TestCase):
             output,
         )
 
-    def test_wakatime_total_includes_other_language(self) -> None:
-        output = update_readme.build_wakatime(
-            {
-                "human_readable_total": "1 hr",
-                "human_readable_total_including_other_language": "2 hrs",
-                "languages": [
-                    {"name": "Other", "text": "1 hr", "percent": 50},
-                    {"name": "Python", "text": "1 hr", "percent": 50},
-                ],
-            }
-        )
-
-        self.assertIn("Total: 2 hrs", output)
-
     def test_replace_section_rejects_duplicate_markers(self) -> None:
         section = "<!-- START -->old<!-- END -->"
 
@@ -123,7 +109,7 @@ class ProfileScriptsTest(unittest.TestCase):
             for root in (ET.fromstring(card) for card in cards)
         }
 
-        self.assertEqual({("394", "190", "0 0 394 190")}, dimensions)
+        self.assertEqual({("394", "214", "0 0 394 214")}, dimensions)
 
 
 if __name__ == "__main__":

@@ -1,11 +1,10 @@
 from __future__ import annotations
 
-from base64 import b64encode
 import json
 import os
 import re
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -20,53 +19,38 @@ PROFILE_REPOSITORY = os.environ.get(
 README_PATH = Path(os.environ.get("README_PATH", "README.md"))
 START_MARKER = "<!--START_SECTION:activity-->"
 END_MARKER = "<!--END_SECTION:activity-->"
-WAKATIME_START_MARKER = "<!--START_SECTION:wakatime-->"
-WAKATIME_END_MARKER = "<!--END_SECTION:wakatime-->"
 MAX_ITEMS = 5
-MAX_LANGUAGES = 5
-GRAPH_WIDTH = 20
+EVENTS_PER_PAGE = 100
+MAX_EVENT_PAGES = 3
 
 
 def fetch_public_events() -> list[dict[str, Any]]:
-    request = urllib.request.Request(
-        f"https://api.github.com/users/{USERNAME}/events/public?per_page=50",
-        headers={
-            "Accept": "application/vnd.github+json",
-            "User-Agent": f"{USERNAME}-profile-readme",
-            "X-GitHub-Api-Version": "2022-11-28",
-        },
-    )
-
+    events: list[dict[str, Any]] = []
     token = os.environ.get("GITHUB_TOKEN")
-    if token:
-        request.add_header("Authorization", f"Bearer {token}")
+    for page in range(1, MAX_EVENT_PAGES + 1):
+        request = urllib.request.Request(
+            f"https://api.github.com/users/{USERNAME}/events/public"
+            f"?per_page={EVENTS_PER_PAGE}&page={page}",
+            headers={
+                "Accept": "application/vnd.github+json",
+                "User-Agent": f"{USERNAME}-profile-readme",
+                "X-GitHub-Api-Version": "2022-11-28",
+            },
+        )
+        if token:
+            request.add_header("Authorization", f"Bearer {token}")
 
-    with urllib.request.urlopen(request, timeout=30) as response:
-        return json.load(response)
-
-
-def fetch_wakatime_stats() -> dict[str, Any] | None:
-    api_key = os.environ.get("WAKATIME_API_KEY")
-    if not api_key:
-        return None
-
-    encoded_key = b64encode(api_key.encode("utf-8")).decode("ascii")
-    request = urllib.request.Request(
-        "https://wakatime.com/api/v1/users/current/stats/last_7_days",
-        headers={
-            "Accept": "application/json",
-            "Authorization": f"Basic {encoded_key}",
-            "User-Agent": f"{USERNAME}-profile-readme",
-        },
-    )
-
-    with urllib.request.urlopen(request, timeout=30) as response:
-        payload = json.load(response)
-
-    stats = payload.get("data")
-    if not isinstance(stats, dict):
-        raise RuntimeError("WakaTime stats response is invalid")
-    return stats
+        with urllib.request.urlopen(request, timeout=30) as response:
+            batch = json.load(response)
+        if not isinstance(batch, list):
+            raise RuntimeError("GitHub public events response is invalid")
+        events.extend(event for event in batch if isinstance(event, dict))
+        if (
+            len(batch) < EVENTS_PER_PAGE
+            or len(build_activity_items(events)) >= MAX_ITEMS
+        ):
+            break
+    return events
 
 
 def format_date(value: str) -> str:
@@ -105,6 +89,8 @@ def format_event(event: dict[str, Any]) -> str | None:
         number = pull_request.get("number")
         url = pull_request.get("html_url")
         action = payload.get("action", "updated").capitalize()
+        if payload.get("action") == "closed" and pull_request.get("merged"):
+            action = "Merged"
         if number and url:
             return f"- `{date}` {action} [PR #{number}]({url}) in {repository_link}"
 
@@ -136,7 +122,7 @@ def format_event(event: dict[str, Any]) -> str | None:
     return None
 
 
-def build_activity(events: list[dict[str, Any]]) -> str:
+def build_activity_items(events: list[dict[str, Any]]) -> list[str]:
     items: list[str] = []
     seen: set[tuple[str, str]] = set()
 
@@ -164,41 +150,12 @@ def build_activity(events: list[dict[str, Any]]) -> str:
         if len(items) == MAX_ITEMS:
             break
 
-    if not items:
-        return "_표시할 최근 공개 활동이 없습니다._"
-
-    return "\n".join(items)
+    return items
 
 
-def build_wakatime(stats: dict[str, Any]) -> str:
-    languages = [
-        language
-        for language in stats.get("languages", [])
-        if language.get("name")
-    ][:MAX_LANGUAGES]
-
-    if not languages:
-        return "_No activity tracked._"
-
-    name_width = max(len(str(language["name"])) for language in languages)
-    lines: list[str] = []
-    total = stats.get("human_readable_total_including_other_language") or stats.get(
-        "human_readable_total"
-    )
-    if total:
-        lines.extend((f"Total: {total}", ""))
-
-    for language in languages:
-        name = str(language["name"])
-        duration = str(language.get("text") or "0 secs")
-        percent = float(language.get("percent") or 0)
-        filled = max(0, min(GRAPH_WIDTH, round(percent / 100 * GRAPH_WIDTH)))
-        graph = "█" * filled + "░" * (GRAPH_WIDTH - filled)
-        lines.append(
-            f"{name.ljust(name_width)}   {duration:<18} {graph}   {percent:05.2f} %"
-        )
-
-    return "```text\n" + "\n".join(lines) + "\n```"
+def build_activity(events: list[dict[str, Any]]) -> str:
+    items = build_activity_items(events)
+    return "\n".join(items) if items else "_No recent public activity to display._"
 
 
 def replace_section(
@@ -223,7 +180,7 @@ def replace_section(
     return updated
 
 
-def update_readme(activity: str, wakatime: str | None = None) -> bool:
+def update_readme(activity: str) -> bool:
     original = README_PATH.read_text(encoding="utf-8")
     updated = replace_section(
         original,
@@ -232,15 +189,6 @@ def update_readme(activity: str, wakatime: str | None = None) -> bool:
         activity,
         "activity",
     )
-
-    if wakatime is not None:
-        updated = replace_section(
-            updated,
-            WAKATIME_START_MARKER,
-            WAKATIME_END_MARKER,
-            wakatime,
-            "WakaTime",
-        )
 
     if updated == original:
         return False
@@ -251,11 +199,12 @@ def update_readme(activity: str, wakatime: str | None = None) -> bool:
 
 def main() -> None:
     events = fetch_public_events()
-    wakatime_stats = fetch_wakatime_stats()
-    wakatime = build_wakatime(wakatime_stats) if wakatime_stats is not None else None
-    changed = update_readme(build_activity(events), wakatime)
-    if wakatime_stats is None:
-        print("WakaTime update skipped: WAKATIME_API_KEY is not configured.")
+    updated_date = datetime.now(timezone.utc).date().isoformat()
+    activity = (
+        f"{build_activity(events)}\n\n"
+        f"<sub>Updated: {updated_date} UTC · Public activity in personal repositories.</sub>"
+    )
+    changed = update_readme(activity)
     print("README updated." if changed else "README is already up to date.")
 
 
