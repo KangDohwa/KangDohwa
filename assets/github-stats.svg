@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="394" height="214" viewBox="0 0 394 214" role="img" aria-labelledby="stats-title stats-desc">
   <title id="stats-title">KangDohwa GitHub statistics</title>
   <desc id="stats-desc">Rolling 30-day contribution statistics from personal repositories and organizations owned by KangDohwa.</desc>
-  <!-- Values retained from the last successful Actions run (37891721589); the repository token refreshes them after publishing. -->
   <defs><style>
       text { font-family: Inter, "Segoe UI", Arial, sans-serif; }
       .card { fill: #ffffff; stroke: #e2e8f0; }
@@ -20,6 +19,6 @@
   <rect class="card" x="0.5" y="0.5" width="393" height="213" rx="12"/>
   <text class="title" x="28" y="36" font-size="20">GitHub Activity</text>
   <text class="subtitle" x="28" y="59" font-size="12">Last 30 days · Personal + 7 owner organizations</text>
-  <text class="label" x="32" y="92" font-size="13">Active repositories</text><text class="value" x="32" y="116" font-size="22">8</text><text class="label" x="210" y="92" font-size="13">PRs opened</text><text class="value" x="210" y="116" font-size="22">8</text><text class="label" x="32" y="151" font-size="13">Commits</text><text class="value" x="32" y="175" font-size="22">953</text><text class="label" x="210" y="151" font-size="13">PRs merged</text><text class="value" x="210" y="175" font-size="22">7</text>
-  <text class="subtitle" x="28" y="202" font-size="11">Updated: 2026-10-09 UTC</text>
+  <text class="label" x="32" y="92" font-size="13">Active repositories</text><text class="value" x="32" y="116" font-size="22">10</text><text class="label" x="210" y="92" font-size="13">PRs opened</text><text class="value" x="210" y="116" font-size="22">11</text><text class="label" x="32" y="151" font-size="13">Commits</text><text class="value" x="32" y="175" font-size="22">940</text><text class="label" x="210" y="151" font-size="13">PRs merged</text><text class="value" x="210" y="175" font-size="22">11</text>
+  <text class="subtitle" x="28" y="202" font-size="11">Updated: 2026-10-10 UTC</text>
 </svg>
